@@ -53,6 +53,19 @@ namespace backend.Controllers
 
         }
 
+        [HttpPost]
+        [Route("StaffRegistration")]
+
+        public Response StaffRegistration(Staff staff)
+        {
+            Response response = new(); 
+            SqlConnection connection = new(_configuration.GetConnectionString("SNCon").ToString());
+            Dal dal = new();
+            response = dal.StaffRegistration(staff, connection);
+            return response;
+        }
+
+
        
 
 

@@ -28,6 +28,16 @@ namespace backend.Controllers
             response = dal.AddNews(news, connection);
             return response;
         }
+        [HttpGet]
+        [Route("NewsList")]
+        public Response NewsList(News news)
+        {
+            Response response = new();
+            SqlConnection connection = new(_configuration.GetConnectionString("SNCon").ToString());
+            Dal dal = new();
+            response = dal.NewsList( connection);
+            return response;
+        }
       
 
     }
